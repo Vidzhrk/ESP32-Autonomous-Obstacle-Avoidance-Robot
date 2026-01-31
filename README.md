@@ -1,26 +1,50 @@
 # Overview
 
-This project implements an autonomous 4-wheel mobile robot using an ESP32 microcontroller.
-The robot detects obstacles using ultrasonic sensors and automatically chooses a safe path by scanning left and right directions using servo-mounted sensors.
+This project is a smart 4-wheel robotic vehicle built using Espressif Systems ESP32 that supports both:
+1)Autonomous obstacle avoidance
+2)Manual Bluetooth control
+The robot can independently navigate obstacles using ultrasonic sensors and also be manually driven from a phone using Bluetooth commands.
 
-The system supports:
-
-Automatic obstacle avoidance
-
-Manual Bluetooth control
-
-Servo-based environment scanning
-
-Real-time motor speed control using PWM
+This combines:
+Embedded systems
+Real-time control
+Sensor fusion
+Robotics navigation logic
 
 
 # Objectives
-
 Build an intelligent navigation robot
-
 Implement sensor-based decision making
-
 Integrate embedded systems + control logic
+
+ # Key Features
+
+1) Automatic Mode
+Moves forward continuously
+Measures front & back distance using ultrasonic sensors
+Stops when obstacle detected
+Moves slightly backward
+Servo rotates sensor left & right
+Chooses direction with maximum free space
+Turns and continues navigation
+
+2) Manual Mode (Bluetooth)
+Controlled wirelessly from phone
+
+Commands:
+a → Forward
+b → Backward
+l → Left
+r → Right
+c → Brake
+Adjustable speed using PWM
+
+3) Extra:
+Dual ultrasonic sensing (front + back)
+Servo scanning
+PWM motor speed control
+State-machine based logic
+Mode switching using interrupt pin
 
 # Hardware Components
 Component	Quantity
@@ -31,6 +55,7 @@ Ultrasonic Sensors	2
 Servo Motors	2
 Battery Pack	1
 Robot Chassis	1
+
 # Pin Configuration
 
 Motors
